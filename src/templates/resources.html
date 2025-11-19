@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Learning Resources</h1>
+    <p class="page-description">
+        Curated resources to help you master GitHub Copilot and boost your productivity.
+    </p>
+</div>
+
+<section class="resources-section">
+    {% set categories = resources | groupby('category') %}
+    
+    {% for category, items in categories %}
+    <div class="resource-category">
+        <h2 class="category-title">{{ category }}</h2>
+        <div class="resource-list">
+            {% for resource in items %}
+            <div class="resource-card">
+                <h3 class="resource-title">
+                    <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">
+                        {{ resource.title }}
+                        <span class="external-link-icon">↗</span>
+                    </a>
+                </h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="resource-link">
+                    Visit Resource →
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<section class="additional-resources">
+    <h2>Additional Tips</h2>
+    <div class="tips-grid">
+        <div class="tip-card">
+            <h3>💡 Write Clear Comments</h3>
+            <p>Describe what you want to achieve in comments, and Copilot will suggest code to implement it.</p>
+        </div>
+        <div class="tip-card">
+            <h3>🎯 Be Specific</h3>
+            <p>The more context you provide, the better suggestions Copilot can generate for your needs.</p>
+        </div>
+        <div class="tip-card">
+            <h3>🔄 Iterate and Refine</h3>
+            <p>Review and refine Copilot's suggestions to match your exact requirements and coding style.</p>
+        </div>
+        <div class="tip-card">
+            <h3>📖 Learn from Suggestions</h3>
+            <p>Study the code Copilot suggests to discover new patterns and techniques.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
