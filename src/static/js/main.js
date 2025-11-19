@@ -1,6 +1,6 @@
 /**
  * Main JavaScript file for GitHub Copilot Demo application.
- * 
+ *
  * This file contains client-side functionality for the application.
  */
 
