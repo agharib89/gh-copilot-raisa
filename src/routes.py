@@ -78,6 +78,20 @@ def register_routes(app: Flask) -> None:
             active_page="about",
         )
 
+    @app.route("/author")
+    def author() -> str:
+        """
+        Render the author page with information about Raisa Energy.
+
+        Returns:
+            Rendered author page template.
+        """
+        return render_template(
+            "author.html",
+            title="About the Author",
+            active_page="author",
+        )
+
 
 def get_learning_resources() -> List[Dict[str, Any]]:
     """
