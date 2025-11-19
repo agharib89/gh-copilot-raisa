@@ -32,6 +32,12 @@
                 <li class="nav-item">
                     <a href="{{ url_for('author') }}" class="nav-link {% if active_page == 'author' %}active{% endif %}">Author</a>
                 </li>
+                <li class="nav-item">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text">Dark</span>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
