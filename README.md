@@ -1,6 +1,6 @@
 # Python Project with GitHub Copilot
 
-A Python project configured with comprehensive GitHub Copilot instructions, prompts, and agents.
+A Python Flask application demonstrating GitHub Copilot capabilities with comprehensive instructions, prompts, and agents.
 
 ## 🚀 Quick Start
 
@@ -16,7 +16,7 @@ A Python project configured with comprehensive GitHub Copilot instructions, prom
 
 ```bash
 git clone <repository-url>
-cd github-copilot
+cd gh-copilot-raisa
 ```
 
 2. Create a virtual environment:
@@ -33,10 +33,26 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
 
+### Running the Application
+
+Start the Flask development server:
+
+```bash
+python src/app.py
+```
+
+Then open your browser and navigate to `http://127.0.0.1:5000`
+
+The application provides:
+- **Home Page** - Introduction to GitHub Copilot
+- **Resources** - Curated learning resources
+- **Examples** - Feature demonstrations
+- **About** - Project information
+
 ## 📁 Project Structure
 
 ```
-github-copilot/
+gh-copilot-raisa/
 ├── .github/
 │   ├── copilot-instructions.md      # Main Copilot instructions
 │   ├── instructions/                # Language-specific guidelines
@@ -60,7 +76,25 @@ github-copilot/
 │   └── workflows/
 │       └── copilot-setup-steps.yml  # CI/CD workflow
 ├── src/                             # Source code
+│   ├── app.py                       # Flask application
+│   ├── routes.py                    # Route handlers
+│   ├── example.py                   # Example module
+│   ├── templates/                   # HTML templates
+│   │   ├── base.html
+│   │   ├── home.html
+│   │   ├── resources.html
+│   │   ├── examples.html
+│   │   ├── about.html
+│   │   ├── 404.html
+│   │   └── 500.html
+│   └── static/                      # Static files
+│       ├── css/
+│       │   └── style.css
+│       └── js/
+│           └── main.js
 ├── tests/                           # Test files
+│   ├── test_app.py                  # Flask app tests
+│   └── test_example.py              # Example tests
 ├── requirements.txt                 # Production dependencies
 ├── requirements-dev.txt             # Development dependencies
 └── README.md
