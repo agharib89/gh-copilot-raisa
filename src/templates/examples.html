@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Copilot Examples</h1>
+    <p class="page-description">
+        Explore various features and capabilities of GitHub Copilot with practical examples.
+    </p>
+</div>
+
+<section class="examples-section">
+    <div class="examples-grid">
+        {% for example in examples %}
+        <div class="example-card">
+            <div class="example-header">
+                <h3 class="example-title">{{ example.title }}</h3>
+                <p class="example-description">{{ example.description }}</p>
+            </div>
+            <div class="example-features">
+                <h4>Key Features:</h4>
+                <ul class="features-list">
+                    {% for feature in example.features %}
+                    <li>{{ feature }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="demo-section">
+    <h2>How This Project Uses Copilot</h2>
+    <div class="demo-content">
+        <div class="demo-item">
+            <h3>📝 Instructions</h3>
+            <p>
+                This project includes comprehensive instructions in <code>.github/instructions/</code>
+                that guide Copilot to follow Python best practices, security guidelines, and testing standards.
+            </p>
+        </div>
+        <div class="demo-item">
+            <h3>🎯 Prompts</h3>
+            <p>
+                Reusable prompts in <code>.github/prompts/</code> help you quickly generate components,
+                tests, documentation, and perform code reviews.
+            </p>
+        </div>
+        <div class="demo-item">
+            <h3>🤖 Agents</h3>
+            <p>
+                Specialized agents in <code>.github/agents/</code> provide expert assistance for
+                architecture planning, code review, and debugging tasks.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="code-examples">
+    <h2>Code Example: Using Copilot</h2>
+    <div class="code-example-content">
+        <p>Here's how this Flask application was built with Copilot's assistance:</p>
+        <ol class="example-steps">
+            <li>
+                <strong>Write a comment describing the desired function:</strong>
+                <pre><code># Create a Flask route that displays learning resources</code></pre>
+            </li>
+            <li>
+                <strong>Copilot suggests the implementation:</strong>
+                <pre><code>@app.route('/resources')
+def resources():
+    """Render the resources page with learning materials."""
+    return render_template('resources.html')</code></pre>
+            </li>
+            <li>
+                <strong>Accept, modify, or request alternatives</strong> until the code matches your needs.
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Try It Yourself!</h2>
+    <p>Clone this repository and explore the code to see Copilot in action.</p>
+    <a href="https://github.com/agharib89/gh-copilot-raisa" target="_blank" class="btn btn-primary">
+        View on GitHub
+    </a>
+</section>
+{% endblock %}
