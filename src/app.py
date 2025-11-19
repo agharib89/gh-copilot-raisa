@@ -44,7 +44,7 @@ def create_app(config: Dict[str, Any] | None = None) -> Flask:
         app.config.update(config)
 
     # Register routes
-    from src.routes import register_routes
+    from routes import register_routes
 
     register_routes(app)
 

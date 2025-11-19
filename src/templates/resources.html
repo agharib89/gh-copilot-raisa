@@ -1,68 +1,383 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Copilot Resources</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #24292e;
-        }
-        h1 {
-            border-bottom: 1px solid #e1e4e8;
-            padding-bottom: 0.3em;
-        }
-        h2 {
-            margin-top: 24px;
-            margin-bottom: 16px;
-            font-weight: 600;
-            line-height: 1.25;
-            border-bottom: 1px solid #e1e4e8;
-            padding-bottom: 0.3em;
-        }
-        .resource {
-            margin-bottom: 20px;
-            padding: 16px;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-        }
-        .resource h3 {
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-        .resource a {
-            color: #0366d6;
-            text-decoration: none;
-        }
-        .resource a:hover {
-            text-decoration: underline;
-        }
-        .resource p {
-            margin: 8px 0;
-            color: #586069;
-        }
-    </style>
-</head>
-<body>
-    <h1>GitHub Copilot Resources</h1>
-    
-    <section id="community-projects">
-        <h2>Community Projects</h2>
-        
-        <div class="resource">
-            <h3>Awesome Copilot</h3>
-            <a href="https://github.com/github/awesome-copilot" target="_blank" rel="noopener noreferrer">
-                https://github.com/github/awesome-copilot
-            </a>
-            <p>
-                A curated list of useful resources, guides, tools, and demos to help you get the most out of GitHub Copilot, including official documentation, community tutorials, third-party integrations, and best practice collections.
-            </p>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="resources-page">
+    <header class="page-header">
+        <h1>📚 GitHub Copilot Learning Resources</h1>
+        <p class="subtitle">
+            Comprehensive collection of official documentation, courses, tutorials,
+            and community resources to master GitHub Copilot
+        </p>
+    </header>
+
+    <!-- Documentation Section -->
+    <section class="resource-section">
+        <h2 class="section-title">
+            <span class="icon">📖</span>
+            Official Documentation
+        </h2>
+        <div class="resource-grid">
+            {% for resource in resources.documentation %}
+            <div class="resource-card">
+                <h3 class="resource-title">{{ resource.title }}</h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                <div class="resource-footer">
+                    <span class="badge badge-free">{{ resource.cost }}</span>
+                    <a href="{{ resource.url }}" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        View Resource →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </section>
-</body>
-</html>
+
+    <!-- Getting Started Section -->
+    <section class="resource-section">
+        <h2 class="section-title">
+            <span class="icon">🚀</span>
+            Getting Started
+        </h2>
+        <div class="resource-grid">
+            {% for resource in resources.getting_started %}
+            <div class="resource-card">
+                <h3 class="resource-title">{{ resource.title }}</h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                <div class="resource-footer">
+                    <span class="badge badge-free">{{ resource.cost }}</span>
+                    <a href="{{ resource.url }}" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        View Resource →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Microsoft Learn Section -->
+    <section class="resource-section">
+        <h2 class="section-title">
+            <span class="icon">🎓</span>
+            Microsoft Learn
+        </h2>
+        <div class="resource-grid">
+            {% for resource in resources.microsoft_learn %}
+            <div class="resource-card">
+                <h3 class="resource-title">{{ resource.title }}</h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                <div class="resource-meta">
+                    <span class="badge badge-platform">{{ resource.platform }}</span>
+                    <span class="badge badge-level">{{ resource.level }}</span>
+                </div>
+                <div class="resource-footer">
+                    <span class="badge badge-free">{{ resource.cost }}</span>
+                    <a href="{{ resource.url }}" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        Start Learning →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="resource-section">
+        <h2 class="section-title">
+            <span class="icon">💻</span>
+            Online Courses
+        </h2>
+        <div class="resource-grid">
+            {% for resource in resources.courses %}
+            <div class="resource-card">
+                <h3 class="resource-title">{{ resource.title }}</h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                <div class="resource-meta">
+                    <span class="badge badge-platform">{{ resource.platform }}</span>
+                    <span class="badge badge-level">{{ resource.level }}</span>
+                </div>
+                <div class="resource-footer">
+                    <span class="badge badge-paid">{{ resource.cost }}</span>
+                    <a href="{{ resource.url }}" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        Enroll Now →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Video Tutorials Section -->
+    <section class="resource-section">
+        <h2 class="section-title">
+            <span class="icon">🎥</span>
+            Video Tutorials
+        </h2>
+        <div class="resource-grid">
+            {% for resource in resources.videos %}
+            <div class="resource-card">
+                <h3 class="resource-title">{{ resource.title }}</h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                <div class="resource-footer">
+                    <span class="badge badge-youtube">YouTube</span>
+                    <a href="{{ resource.url }}" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        Watch Video →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section class="resource-section">
+        <h2 class="section-title">
+            <span class="icon">🏆</span>
+            Certification & Exam Prep
+        </h2>
+        <div class="resource-grid">
+            {% for resource in resources.certification %}
+            <div class="resource-card resource-card-highlight">
+                <h3 class="resource-title">{{ resource.title }}</h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                <div class="resource-footer">
+                    <span class="badge badge-free">{{ resource.cost }}</span>
+                    <a href="{{ resource.url }}" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        Start Preparing →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Best Practices Section -->
+    <section class="resource-section">
+        <h2 class="section-title">
+            <span class="icon">⭐</span>
+            Best Practices
+        </h2>
+        <div class="resource-grid">
+            {% for resource in resources.best_practices %}
+            <div class="resource-card">
+                <h3 class="resource-title">{{ resource.title }}</h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                <div class="resource-footer">
+                    <span class="badge badge-free">{{ resource.cost }}</span>
+                    <a href="{{ resource.url }}" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        Learn More →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="resource-section">
+        <h2 class="section-title">
+            <span class="icon">👥</span>
+            Community Resources
+        </h2>
+        <div class="resource-grid">
+            {% for resource in resources.community %}
+            <div class="resource-card">
+                <h3 class="resource-title">{{ resource.title }}</h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                <div class="resource-footer">
+                    <span class="badge badge-free">{{ resource.cost }}</span>
+                    <a href="{{ resource.url }}" class="resource-link" target="_blank" rel="noopener noreferrer">
+                        Explore →
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+<style>
+.resources-page {
+    padding: 2rem 0;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #24292e;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #586069;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.resource-section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #24292e;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e1e4e8;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-title .icon {
+    font-size: 1.5rem;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.resource-card {
+    background: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.resource-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #0366d6;
+    transform: translateY(-2px);
+}
+
+.resource-card-highlight {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+
+.resource-card-highlight .resource-title,
+.resource-card-highlight .resource-description {
+    color: white;
+}
+
+.resource-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #24292e;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.resource-description {
+    color: #586069;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.resource-meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.resource-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #e1e4e8;
+}
+
+.resource-card-highlight .resource-footer {
+    border-top-color: rgba(255, 255, 255, 0.3);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.badge-free {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-paid {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.badge-youtube {
+    background: #ff0000;
+    color: white;
+}
+
+.badge-platform {
+    background: #e1e4e8;
+    color: #24292e;
+}
+
+.badge-level {
+    background: #0366d6;
+    color: white;
+}
+
+.resource-card-highlight .badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.resource-link {
+    color: #0366d6;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.resource-link:hover {
+    color: #0256b0;
+    text-decoration: underline;
+}
+
+.resource-card-highlight .resource-link {
+    color: white;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+</style>
+{% endblock %}
