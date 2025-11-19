@@ -36,3 +36,5 @@ Refer to the specific instruction files for detailed guidelines:
 - [Testing Standards](./instructions/testing.instructions.md)
 - [Security Best Practices](./instructions/security.instructions.md)
 - [Documentation Requirements](./instructions/documentation.instructions.md)
+- [Performance Optimization](./instructions/performance.instructions.md)
+- [Code Review Standards](./instructions/code-review.instructions.md)
