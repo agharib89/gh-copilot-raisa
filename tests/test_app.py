@@ -64,6 +64,13 @@ class TestRoutes:
         assert response.status_code == 200
         assert b"About This Project" in response.data
 
+    def test_author_page(self, client: FlaskClient) -> None:
+        """Test that author page loads successfully."""
+        response = client.get("/author")
+        assert response.status_code == 200
+        assert b"About the Author" in response.data
+        assert b"Raisa Energy" in response.data
+
     def test_404_error(self, client: FlaskClient) -> None:
         """Test that 404 page is displayed for invalid routes."""
         response = client.get("/nonexistent")
@@ -95,6 +102,7 @@ class TestAppCreation:
         assert "/resources" in rules
         assert "/examples" in rules
         assert "/about" in rules
+        assert "/author" in rules
 
 
 class TestResourcesData:
@@ -148,6 +156,7 @@ class TestTemplateRendering:
         assert b"Resources" in response.data
         assert b"Examples" in response.data
         assert b"About" in response.data
+        assert b"Author" in response.data
 
     def test_resources_template_has_categories(
         self, client: FlaskClient
