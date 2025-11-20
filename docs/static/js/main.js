@@ -113,4 +113,95 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c🤖 GitHub Copilot Demo', 'font-size: 20px; font-weight: bold; color: #0969da;');
     console.log('%cThis project was built with GitHub Copilot assistance!', 'font-size: 14px; color: #57606a;');
     console.log('%cCheck out the source code: https://github.com/agharib89/gh-copilot-raisa', 'font-size: 12px; color: #0969da;');
+
+    // Copy to clipboard functionality
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    
+    copyButtons.forEach(button => {
+        button.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('data-copy-target');
+            const targetElement = document.getElementById(targetId);
+            
+            if (!targetElement) {
+                console.error('Copy target not found:', targetId);
+                return;
+            }
+            
+            // Get the text content
+            const textToCopy = targetElement.textContent || targetElement.innerText;
+            
+            try {
+                // Try using the modern Clipboard API
+                await navigator.clipboard.writeText(textToCopy);
+                showCopyFeedback(this, true);
+            } catch (err) {
+                // Fallback for older browsers
+                const success = fallbackCopyToClipboard(textToCopy);
+                showCopyFeedback(this, success);
+            }
+        });
+    });
+
+    /**
+     * Show visual feedback when text is copied.
+     * 
+     * @param {HTMLElement} button - The button that was clicked
+     * @param {boolean} success - Whether the copy was successful
+     */
+    function showCopyFeedback(button, success) {
+        const copyText = button.querySelector('.copy-text');
+        const originalText = copyText ? copyText.textContent : 'Copy';
+        
+        if (success) {
+            button.classList.add('copied');
+            if (copyText) {
+                copyText.textContent = 'Copied!';
+            }
+            
+            setTimeout(() => {
+                button.classList.remove('copied');
+                if (copyText) {
+                    copyText.textContent = originalText;
+                }
+            }, 2000);
+        } else {
+            if (copyText) {
+                copyText.textContent = 'Failed';
+            }
+            setTimeout(() => {
+                if (copyText) {
+                    copyText.textContent = originalText;
+                }
+            }, 2000);
+        }
+    }
+
+    /**
+     * Fallback function for copying text to clipboard in older browsers.
+     * 
+     * @param {string} text - Text to copy
+     * @returns {boolean} Whether the copy was successful
+     */
+    function fallbackCopyToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            const successful = document.execCommand('copy');
+            document.body.removeChild(textArea);
+            return successful;
+        } catch (err) {
+            console.error('Fallback copy failed:', err);
+            document.body.removeChild(textArea);
+            return false;
+        }
+    }
 });

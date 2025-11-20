@@ -106,6 +106,20 @@ def register_routes(app: Flask) -> None:
             active_page="tutorials",
         )
 
+    @app.route("/copilot-integration")
+    def copilot_integration() -> str:
+        """
+        Render the Copilot integration page with setup guides and prompts.
+
+        Returns:
+            Rendered copilot-integration page template.
+        """
+        return render_template(
+            "copilot-integration.html",
+            title="Use with GitHub Copilot",
+            active_page="copilot-integration",
+        )
+
 
 def get_learning_resources() -> Dict[str, List[Dict[str, Any]]]:
     """
