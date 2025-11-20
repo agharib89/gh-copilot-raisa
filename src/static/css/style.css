@@ -12,6 +12,20 @@
     --footer-text: #ffffff;
 }
 
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --primary-color: #58a6ff;
+    --secondary-color: #1f6feb;
+    --text-color: #c9d1d9;
+    --bg-color: #0d1117;
+    --light-bg: #161b22;
+    --border-color: #30363d;
+    --success-color: #3fb950;
+    --error-color: #f85149;
+    --footer-bg: #161b22;
+    --footer-text: #c9d1d9;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -76,6 +90,32 @@ body {
 .nav-link.active {
     color: var(--secondary-color);
     border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--footer-text);
+    color: var(--footer-text);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.theme-toggle:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
 }
 
 /* Main Content */
