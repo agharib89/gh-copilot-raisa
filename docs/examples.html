@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot Examples - GitHub Copilot Demo</title>
+    <link rel="stylesheet" href="/gh-copilot-raisa/static/css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/gh-copilot-raisa/">
+                    <span class="logo">🤖</span>
+                    <span class="brand-name">GitHub Copilot Demo</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/" class="nav-link ">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/resources.html" class="nav-link ">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/tutorials.html" class="nav-link ">Tutorials</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/examples.html" class="nav-link active">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/about.html" class="nav-link ">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/author.html" class="nav-link ">Author</a>
+                </li>
+                <li class="nav-item">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text">Dark</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            
+<div class="page-header">
+    <h1>Copilot Examples</h1>
+    <p class="page-description">
+        Explore various features and capabilities of GitHub Copilot with practical examples.
+    </p>
+</div>
+
+<section class="examples-section">
+    <div class="examples-grid">
+        
+        <div class="example-card">
+            <div class="example-header">
+                <h3 class="example-title">Code Completion</h3>
+                <p class="example-description">Copilot suggests code completions as you type</p>
+            </div>
+            <div class="example-features">
+                <h4>Key Features:</h4>
+                <ul class="features-list">
+                    
+                    <li>Context-aware suggestions</li>
+                    
+                    <li>Multiple language support</li>
+                    
+                    <li>Function and class generation</li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <div class="example-card">
+            <div class="example-header">
+                <h3 class="example-title">Documentation Generation</h3>
+                <p class="example-description">Generate docstrings and comments automatically</p>
+            </div>
+            <div class="example-features">
+                <h4>Key Features:</h4>
+                <ul class="features-list">
+                    
+                    <li>PEP 257 compliant docstrings</li>
+                    
+                    <li>Parameter descriptions</li>
+                    
+                    <li>Return value documentation</li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <div class="example-card">
+            <div class="example-header">
+                <h3 class="example-title">Test Generation</h3>
+                <p class="example-description">Create comprehensive test cases with pytest</p>
+            </div>
+            <div class="example-features">
+                <h4>Key Features:</h4>
+                <ul class="features-list">
+                    
+                    <li>Unit test generation</li>
+                    
+                    <li>Edge case coverage</li>
+                    
+                    <li>Fixture creation</li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <div class="example-card">
+            <div class="example-header">
+                <h3 class="example-title">Code Refactoring</h3>
+                <p class="example-description">Refactor existing code following best practices</p>
+            </div>
+            <div class="example-features">
+                <h4>Key Features:</h4>
+                <ul class="features-list">
+                    
+                    <li>Function extraction</li>
+                    
+                    <li>Variable renaming</li>
+                    
+                    <li>Code optimization</li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <div class="example-card">
+            <div class="example-header">
+                <h3 class="example-title">Bug Fixing</h3>
+                <p class="example-description">Identify and fix bugs with Copilot assistance</p>
+            </div>
+            <div class="example-features">
+                <h4>Key Features:</h4>
+                <ul class="features-list">
+                    
+                    <li>Error analysis</li>
+                    
+                    <li>Solution suggestions</li>
+                    
+                    <li>Error handling improvements</li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <div class="example-card">
+            <div class="example-header">
+                <h3 class="example-title">Code Translation</h3>
+                <p class="example-description">Convert code between different languages</p>
+            </div>
+            <div class="example-features">
+                <h4>Key Features:</h4>
+                <ul class="features-list">
+                    
+                    <li>Multi-language support</li>
+                    
+                    <li>Idiom preservation</li>
+                    
+                    <li>Best practices application</li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<section class="demo-section">
+    <h2>How This Project Uses Copilot</h2>
+    <div class="demo-content">
+        <div class="demo-item">
+            <h3>📝 Instructions</h3>
+            <p>
+                This project includes comprehensive instructions in <code>.github/instructions/</code>
+                that guide Copilot to follow Python best practices, security guidelines, and testing standards.
+            </p>
+        </div>
+        <div class="demo-item">
+            <h3>🎯 Prompts</h3>
+            <p>
+                Reusable prompts in <code>.github/prompts/</code> help you quickly generate components,
+                tests, documentation, and perform code reviews.
+            </p>
+        </div>
+        <div class="demo-item">
+            <h3>🤖 Agents</h3>
+            <p>
+                Specialized agents in <code>.github/agents/</code> provide expert assistance for
+                architecture planning, code review, and debugging tasks.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="code-examples">
+    <h2>Code Example: Using Copilot</h2>
+    <div class="code-example-content">
+        <p>Here's how this Flask application was built with Copilot's assistance:</p>
+        <ol class="example-steps">
+            <li>
+                <strong>Write a comment describing the desired function:</strong>
+                <pre><code># Create a Flask route that displays learning resources</code></pre>
+            </li>
+            <li>
+                <strong>Copilot suggests the implementation:</strong>
+                <pre><code>@app.route('/resources')
+def resources():
+    """Render the resources page with learning materials."""
+    return render_template('resources.html')</code></pre>
+            </li>
+            <li>
+                <strong>Accept, modify, or request alternatives</strong> until the code matches your needs.
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Try It Yourself!</h2>
+    <p>Clone this repository and explore the code to see Copilot in action.</p>
+    <a href="https://github.com/agharib89/gh-copilot-raisa" target="_blank" class="btn btn-primary">
+        View on GitHub
+    </a>
+</section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 GitHub Copilot Demo Project. Built with Flask and ❤️</p>
+            <p class="footer-links">
+                <a href="https://github.com/agharib89/gh-copilot-raisa" target="_blank">GitHub Repository</a> |
+                <a href="https://docs.github.com/en/copilot" target="_blank">Copilot Docs</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="/gh-copilot-raisa/static/js/main.js"></script>
+    
+</body>
+</html>

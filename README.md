@@ -2,7 +2,13 @@
 
 A Python Flask application demonstrating GitHub Copilot capabilities with comprehensive instructions, prompts, and agents.
 
+🌐 **Live Demo**: [https://agharib89.github.io/gh-copilot-raisa/](https://agharib89.github.io/gh-copilot-raisa/)
+
 ## 🚀 Quick Start
+
+### View Online
+
+Visit the live site at [https://agharib89.github.io/gh-copilot-raisa/](https://agharib89.github.io/gh-copilot-raisa/) to explore the GitHub Copilot resources and examples.
 
 ### Prerequisites
 
@@ -33,7 +39,24 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
 
-### Running the Application
+### Running the Application Locally
+
+#### Option 1: Static Site (Recommended)
+
+Build and serve the static site:
+
+```bash
+# Build the static site
+python build.py
+
+# Serve locally (requires Python 3)
+cd docs
+python -m http.server 8000
+```
+
+Then open your browser and navigate to `http://localhost:8000/gh-copilot-raisa/`
+
+#### Option 2: Flask Development Server
 
 Start the Flask development server:
 
@@ -240,7 +263,33 @@ All code should be documented following PEP 257:
 - Function docstrings with Args, Returns, and Raises sections
 - Type hints for all parameters and return values
 
-## 🚀 CI/CD
+## 🚀 CI/CD and Deployment
+
+### GitHub Pages Deployment
+
+The site is automatically deployed to GitHub Pages on every push to the `main` branch.
+
+**Deployment Workflow** (`.github/workflows/deploy-pages.yml`):
+
+1. Triggers on push to main or manual workflow dispatch
+2. Sets up Python 3.11
+3. Installs dependencies
+4. Runs `build.py` to generate static HTML files
+5. Deploys the `docs/` directory to GitHub Pages
+
+**Manual Deployment**:
+
+```bash
+# Build the static site
+python build.py
+
+# Commit and push
+git add docs/
+git commit -m "Update static site"
+git push origin main
+```
+
+### Testing Workflow
 
 GitHub Actions workflow (`copilot-setup-steps.yml`) runs on:
 
@@ -253,6 +302,22 @@ The workflow:
 2. Installs dependencies
 3. Runs linting with flake8
 4. Runs tests with pytest and coverage
+
+### Build Process
+
+The `build.py` script converts the Flask application to static HTML:
+
+1. **Renders all routes** to static HTML files
+2. **Updates asset paths** for GitHub Pages (repo-based hosting with `/gh-copilot-raisa/` base URL)
+3. **Copies static assets** (CSS, JS) to the output directory
+4. **Outputs to `docs/`** directory for GitHub Pages
+
+To rebuild the static site:
+
+```bash
+python build.py        # Outputs to docs/
+python build.py dist   # Custom output directory
+```
 
 ## 🤝 Contributing
 
