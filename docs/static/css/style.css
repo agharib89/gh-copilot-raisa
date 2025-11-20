@@ -43,6 +43,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
+    padding-top: 70px;
 }
 
 .container {
@@ -53,10 +54,15 @@ body {
 
 /* Navigation */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: var(--footer-bg);
     color: var(--footer-text);
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .nav-brand a {
@@ -667,7 +673,7 @@ body {
 
     .nav-menu {
         position: fixed;
-        top: 60px;
+        top: 70px;
         left: 0;
         right: 0;
         background-color: var(--footer-bg);
@@ -679,7 +685,7 @@ body {
         transition: max-height 0.3s ease, opacity 0.3s ease;
         opacity: 0;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
+        z-index: 999;
     }
 
     .nav-menu.active {

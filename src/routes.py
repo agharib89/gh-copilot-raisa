@@ -361,18 +361,10 @@ def get_learning_resources() -> Dict[str, List[Dict[str, Any]]]:
                     "Curated list of GitHub Copilot resources, projects, "
                     "and extensions"
                 ),
-                "url": "https://github.com/topics/github-copilot",
+                "url": "https://github.com/github/awesome-copilot/tree/main",
                 "cost": "Free",
             },
-            {
-                "title": "GitHub Copilot Patterns & Exercises",
-                "description": (
-                    "Collection of patterns and exercises for learning "
-                    "GitHub Copilot"
-                ),
-                "url": "https://github.com/githubcopilot/copilot-patterns",
-                "cost": "Free",
-            },
+
         ],
         "best_practices": [
             {
