@@ -80,7 +80,7 @@ class TestResourcesHTML:
         """Test that Awesome Copilot URL is correct."""
         html_path = get_resources_html_path()
         content = read_html_file(html_path)
-        expected_url = "https://github.com/github/awesome-copilot"
+        expected_url = "https://github.com/github/awesome-copilot/tree/main"
         assert expected_url in content, (
             f"HTML should contain URL: {expected_url}"
         )
