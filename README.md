@@ -2,13 +2,13 @@
 
 A Python Flask application demonstrating GitHub Copilot capabilities with comprehensive instructions, prompts, and agents.
 
-🌐 **Live Demo**: [https://agharib89.github.io/gh-copilot-raisa/](https://agharib89.github.io/gh-copilot-raisa/)
+🌐 **Live Demo**: [https://copilot.agharib.com](https://copilot.agharib.com)
 
 ## 🚀 Quick Start
 
 ### View Online
 
-Visit the live site at [https://agharib89.github.io/gh-copilot-raisa/](https://agharib89.github.io/gh-copilot-raisa/) to explore the GitHub Copilot resources and examples.
+Visit the live site at [https://copilot.agharib.com](https://copilot.agharib.com) to explore the GitHub Copilot resources and examples.
 
 ### Prerequisites
 
@@ -54,7 +54,7 @@ cd docs
 python -m http.server 8000
 ```
 
-Then open your browser and navigate to `http://localhost:8000/gh-copilot-raisa/`
+Then open your browser and navigate to `http://localhost:8000/`
 
 #### Option 2: Flask Development Server
 

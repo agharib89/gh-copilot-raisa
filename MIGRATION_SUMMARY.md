@@ -99,7 +99,7 @@ python build.py
 ```
 1. Imports Flask app
 2. Renders each route using test client
-3. Updates all paths to `/gh-copilot-raisa/`
+3. Updates all paths to `/` (root path for custom domain)
 4. Copies static assets
 5. Outputs to `docs/` directory
 
@@ -108,7 +108,7 @@ python build.py
 2. GitHub Actions workflow triggers
 3. Build script generates static files
 4. Files deployed to GitHub Pages
-5. Site live at: https://agharib89.github.io/gh-copilot-raisa/
+5. Site live at: https://copilot.agharib.com
 
 ## Key Features Preserved
 
@@ -159,7 +159,7 @@ python build.py
 3. **Wait for deployment** (1-2 minutes)
 
 4. **Access your site** at:
-   https://agharib89.github.io/gh-copilot-raisa/
+   https://copilot.agharib.com
 
 ### To Update Content:
 
@@ -203,7 +203,7 @@ The GitHub Pages migration has been successfully implemented following the archi
 
 **Estimated deployment time**: 2-3 minutes after merging
 
-**Live demo URL**: https://agharib89.github.io/gh-copilot-raisa/ (after deployment)
+**Live demo URL**: https://copilot.agharib.com (after deployment)
 
 ---
 
