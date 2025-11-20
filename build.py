@@ -17,13 +17,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 from app import create_app
 
 
-def build_static_site(output_dir: str = 'docs', base_url: str = '/gh-copilot-raisa/') -> None:
+def build_static_site(output_dir: str = 'docs', base_url: str = '/') -> None:
     """
     Build static site by rendering all Flask routes to HTML files.
 
     Args:
         output_dir: Directory to output static files (default: 'docs' for GitHub Pages).
-        base_url: Base URL for the site (default: '/gh-copilot-raisa/' for repo hosting).
+        base_url: Base URL for the site (default: '/' for custom domain).
 
     Returns:
         None
@@ -74,6 +74,12 @@ def build_static_site(output_dir: str = 'docs', base_url: str = '/gh-copilot-rai
 
     # Copy static assets
     copy_static_assets(output_path, base_url)
+    
+    # Create CNAME file for custom domain
+    create_cname_file(output_path)
+    
+    # Create .nojekyll file to disable Jekyll processing
+    create_nojekyll_file(output_path)
 
     print(f"\n✓ Static site built successfully in '{output_dir}' directory")
     print(f"  Base URL: {base_url}")
@@ -130,6 +136,36 @@ def copy_static_assets(output_path: Path, base_url: str) -> None:
         js_files = list(dest_static.glob('**/*.js'))
         print(f"  - CSS files: {len(css_files)}")
         print(f"  - JS files: {len(js_files)}")
+
+
+def create_cname_file(output_path: Path) -> None:
+    """
+    Create CNAME file for GitHub Pages custom domain.
+
+    Args:
+        output_path: Path to output directory.
+
+    Returns:
+        None
+    """
+    cname_file = output_path / 'CNAME'
+    cname_file.write_text('copilot.agharib.com\n', encoding='utf-8')
+    print(f"\n✓ Created CNAME file for custom domain: copilot.agharib.com")
+
+
+def create_nojekyll_file(output_path: Path) -> None:
+    """
+    Create .nojekyll file to disable Jekyll processing on GitHub Pages.
+
+    Args:
+        output_path: Path to output directory.
+
+    Returns:
+        None
+    """
+    nojekyll_file = output_path / '.nojekyll'
+    nojekyll_file.write_text('', encoding='utf-8')
+    print(f"✓ Created .nojekyll file to disable Jekyll processing")
 
 
 if __name__ == '__main__':

@@ -41,7 +41,7 @@ python build.py dist   # Custom output directory
 
 The site is configured for repository-based GitHub Pages hosting:
 
-- **Base URL**: `/gh-copilot-raisa/`
+- **Base URL**: `/` (root path for custom domain)
 - **Navigation**: All links updated to use `.html` extensions
 - **Assets**: CSS and JS paths prefixed with base URL
 - **Static files**: Copied to `docs/static/`
@@ -110,15 +110,15 @@ To enable GitHub Pages for this repository:
 3. **Branch**: Select `main` and `/docs` folder
 4. **Save**
 
-The site will be available at: `https://agharib89.github.io/gh-copilot-raisa/`
+The site is available at: `https://copilot.agharib.com`
 
 ### Custom Domain (Optional)
 
 To use a custom domain:
 
-1. Add `CNAME` file to `docs/` with your domain
+1. Add `CNAME` file to `docs/` with your domain (already configured with `copilot.agharib.com`)
 2. Update DNS records to point to GitHub Pages
-3. Update `base_url` in `build.py` to your domain
+3. Update `base_url` in `build.py` if using a different domain
 
 ## Testing
 
@@ -132,7 +132,7 @@ python build.py
 cd docs
 python -m http.server 8000
 
-# Access at: http://localhost:8000/gh-copilot-raisa/
+# Access at: http://localhost:8000/
 ```
 
 **Option 2: Flask Development Server**
@@ -222,7 +222,7 @@ If pages don't load correctly:
 
 If navigation links are broken:
 
-1. Verify `base_url` in `build.py` matches your GitHub Pages URL
+1. Verify `base_url` in `build.py` matches your domain configuration (should be `/` for custom domains)
 2. Rebuild the site: `python build.py`
 3. Commit and push changes
 

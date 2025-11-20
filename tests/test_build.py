@@ -29,11 +29,11 @@ def test_update_asset_paths():
     from build import update_asset_paths
     
     html = '<link rel="stylesheet" href="/static/css/style.css">'
-    base_url = '/gh-copilot-raisa/'
+    base_url = '/'
     
     result = update_asset_paths(html, base_url)
     
-    assert '/gh-copilot-raisa/static/css/style.css' in result
+    assert '/static/css/style.css' in result
 
 
 def test_update_navigation_links():
@@ -41,11 +41,11 @@ def test_update_navigation_links():
     from build import update_asset_paths
     
     html = '<a href="/resources">Resources</a>'
-    base_url = '/gh-copilot-raisa/'
+    base_url = '/'
     
     result = update_asset_paths(html, base_url)
     
-    assert '/gh-copilot-raisa/resources.html' in result
+    assert '/resources.html' in result
 
 
 def test_build_static_site_creates_directory():
@@ -114,7 +114,7 @@ def test_generated_html_has_correct_paths():
     
     with tempfile.TemporaryDirectory() as tmpdir:
         output_dir = os.path.join(tmpdir, 'test_output')
-        base_url = '/gh-copilot-raisa/'
+        base_url = '/'
         build_static_site(output_dir=output_dir, base_url=base_url)
         
         # Read generated index.html
@@ -123,5 +123,5 @@ def test_generated_html_has_correct_paths():
             content = f.read()
         
         # Check for correct paths
-        assert '/gh-copilot-raisa/static/' in content
-        assert '/gh-copilot-raisa/resources.html' in content
+        assert '/static/' in content
+        assert '/resources.html' in content
