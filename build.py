@@ -47,6 +47,7 @@ def build_static_site(output_dir: str = 'docs', base_url: str = '/') -> None:
         ('/about', 'about.html'),
         ('/author', 'author.html'),
         ('/tutorials', 'tutorials.html'),
+        ('/copilot-integration', 'copilot-integration.html'),
         ('/404', '404.html'),
     ]
 
@@ -108,6 +109,7 @@ def update_asset_paths(html: str, base_url: str) -> str:
     html = html.replace('href="/about"', f'href="{base_url}about.html"')
     html = html.replace('href="/author"', f'href="{base_url}author.html"')
     html = html.replace('href="/tutorials"', f'href="{base_url}tutorials.html"')
+    html = html.replace('href="/copilot-integration"', f'href="{base_url}copilot-integration.html"')
     
     return html
 

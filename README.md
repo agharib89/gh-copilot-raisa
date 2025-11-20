@@ -68,7 +68,9 @@ Then open your browser and navigate to `http://127.0.0.1:5000`
 
 The application provides:
 - **Home Page** - Introduction to GitHub Copilot
+- **Use with Copilot** - Step-by-step integration guide with reusable prompts
 - **Resources** - Curated learning resources
+- **Tutorials** - Customization guides
 - **Examples** - Feature demonstrations
 - **About** - Project information
 
@@ -158,6 +160,22 @@ Specialized chat modes for different scenarios:
 - **debugger.agent.md**: Debugging assistance
 
 ## 🎯 Usage
+
+### Getting Started with GitHub Copilot
+
+Visit the **[Use with Copilot](https://copilot.agharib.com/copilot-integration.html)** page for a comprehensive guide that includes:
+
+- **Installation Instructions**: Step-by-step setup for VS Code and JetBrains IDEs
+- **Configuration Guide**: How to add `.github/copilot-instructions.md` to your project
+- **Reusable Prompt Snippets**: Copy-paste prompts for:
+  - Generating feature boilerplate
+  - Refactoring existing code
+  - Writing comprehensive tests
+  - Generating documentation
+  - Debugging and fixing issues
+  - Performing security reviews
+- **Inline Completion Tips**: Best practices for getting better suggestions
+- **Copy-to-Clipboard Buttons**: Easily copy prompts and configuration examples
 
 ### Using Instructions
 
