@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customization Tutorials - GitHub Copilot Demo</title>
+    <link rel="stylesheet" href="/gh-copilot-raisa/static/css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/gh-copilot-raisa/">
+                    <span class="logo">🤖</span>
+                    <span class="brand-name">GitHub Copilot Demo</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/" class="nav-link ">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/resources.html" class="nav-link ">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/tutorials.html" class="nav-link active">Tutorials</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/examples.html" class="nav-link ">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/about.html" class="nav-link ">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/author.html" class="nav-link ">Author</a>
+                </li>
+                <li class="nav-item">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text">Dark</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            
+<div class="tutorials-page">
+    <header class="page-header">
+        <h1>🎓 GitHub Copilot Customization Tutorials</h1>
+        <p class="subtitle">
+            Step-by-step guides to customize GitHub Copilot for your projects and teams
+        </p>
+    </header>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <h2>📑 Quick Navigation</h2>
+        <div class="link-grid">
+            <a href="#settings" class="quick-link-card">
+                <span class="icon">⚙️</span>
+                <h3>Copilot Settings</h3>
+                <p>Configure VS Code settings</p>
+            </a>
+            <a href="#instructions" class="quick-link-card">
+                <span class="icon">📝</span>
+                <h3>Custom Instructions</h3>
+                <p>Project-specific guidelines</p>
+            </a>
+            <a href="#prompts" class="quick-link-card">
+                <span class="icon">💬</span>
+                <h3>Custom Prompts</h3>
+                <p>Reusable prompt templates</p>
+            </a>
+            <a href="#agents" class="quick-link-card">
+                <span class="icon">🤖</span>
+                <h3>Chat Modes</h3>
+                <p>Specialized agents</p>
+            </a>
+            <a href="#mcp" class="quick-link-card">
+                <span class="icon">🔌</span>
+                <h3>MCP Servers</h3>
+                <p>Extend Copilot capabilities</p>
+            </a>
+            <a href="#levels" class="quick-link-card">
+                <span class="icon">📊</span>
+                <h3>Config Levels</h3>
+                <p>User vs Project setup</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Download Links -->
+    <section class="download-section">
+        <h2>📥 Download Guides</h2>
+        <div class="download-cards">
+            <div class="download-card">
+                <h3>📖 Complete Customization Guide</h3>
+                <p>Comprehensive guide covering all customization options</p>
+                <a href="/gh-copilot-raisa/static/../../../.github/tutorials/customization-guide.md"
+                   download="github-copilot-customization-guide.md"
+                   class="download-btn">
+                    Download Full Guide
+                </a>
+                <a href="https://raw.githubusercontent.com/agharib89/gh-copilot-raisa/main/.github/tutorials/customization-guide.md"
+                   target="_blank"
+                   class="view-btn">
+                    View on GitHub
+                </a>
+            </div>
+            <div class="download-card">
+                <h3>⚡ Quick Reference</h3>
+                <p>Cheat sheet with common patterns and commands</p>
+                <a href="/gh-copilot-raisa/static/../../../.github/tutorials/quick-reference.md"
+                   download="github-copilot-quick-reference.md"
+                   class="download-btn">
+                    Download Quick Reference
+                </a>
+                <a href="https://raw.githubusercontent.com/agharib89/gh-copilot-raisa/main/.github/tutorials/quick-reference.md"
+                   target="_blank"
+                   class="view-btn">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Sections -->
+    <section id="settings" class="tutorial-section">
+        <h2>⚙️ GitHub Copilot Settings</h2>
+        <div class="tutorial-content">
+            <h3>Accessing Settings in VS Code</h3>
+            <ol>
+                <li>Press <code>Ctrl+,</code> (Windows/Linux) or <code>Cmd+,</code> (Mac)</li>
+                <li>Search for "GitHub Copilot"</li>
+                <li>Configure your preferences</li>
+            </ol>
+
+            <h3>Essential Settings</h3>
+            <pre><code class="language-json">{
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false
+  },
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.editor.enableAutoCompletions": true
+}</code></pre>
+        </div>
+    </section>
+
+    <section id="instructions" class="tutorial-section">
+        <h2>📝 Custom Instructions</h2>
+        <div class="tutorial-content">
+            <h3>Project-Level Instructions</h3>
+            <p><strong>Location:</strong> <code>.github/copilot-instructions.md</code></p>
+
+            <h4>Steps:</h4>
+            <ol>
+                <li>Create <code>.github</code> folder in your repository root</li>
+                <li>Create <code>copilot-instructions.md</code> inside</li>
+                <li>Add your project-specific guidelines</li>
+            </ol>
+
+            <h4>Example:</h4>
+            <pre><code class="language-markdown"># Project: E-Commerce Platform
+
+## Tech Stack
+- Backend: Node.js with Express
+- Frontend: React with TypeScript
+- Database: PostgreSQL
+
+## Coding Standards
+- Use async/await for asynchronous operations
+- All functions must have JSDoc comments
+- Follow ESLint rules strictly</code></pre>
+
+            <h3>File-Specific Instructions</h3>
+            <p><strong>Location:</strong> <code>.github/instructions/*.instructions.md</code></p>
+
+            <h4>Example for Python:</h4>
+            <pre><code class="language-markdown">---
+description: Python coding standards
+applyTo: '**/*.py'
+---
+
+# Python Standards
+- Follow PEP 8
+- Use type hints for all functions
+- Write Google-style docstrings</code></pre>
+        </div>
+    </section>
+
+    <section id="prompts" class="tutorial-section">
+        <h2>💬 Custom Prompts</h2>
+        <div class="tutorial-content">
+            <h3>Creating Reusable Prompts</h3>
+            <p><strong>Location:</strong> <code>.github/prompts/*.prompt.md</code></p>
+
+            <h4>Steps:</h4>
+            <ol>
+                <li>Create <code>.github/prompts</code> folder</li>
+                <li>Create files with <code>.prompt.md</code> extension</li>
+                <li>Write your prompts</li>
+            </ol>
+
+            <h4>Using Prompts:</h4>
+            <ol>
+                <li>Open Copilot Chat</li>
+                <li>Type <code>#</code> to see available prompts</li>
+                <li>Select a prompt or type <code>#filename</code></li>
+            </ol>
+
+            <h4>Example Prompt:</h4>
+            <pre><code class="language-markdown"># create-api-endpoint.prompt.md
+
+Create a REST API endpoint with:
+- Method: [GET/POST/PUT/DELETE]
+- Route: /api/[resource]
+- Input validation
+- Error handling
+- Unit tests</code></pre>
+        </div>
+    </section>
+
+    <section id="agents" class="tutorial-section">
+        <h2>🤖 Custom Chat Modes (Agents)</h2>
+        <div class="tutorial-content">
+            <h3>Creating Custom Agents</h3>
+            <p><strong>Location:</strong> <code>.github/agents/*.agent.md</code></p>
+
+            <h4>Example Agent:</h4>
+            <pre><code class="language-markdown">---
+name: Architect
+description: Software architecture expert
+icon: 🏗️
+---
+
+# Architect Agent
+
+I am a software architecture expert specialized in:
+- System design
+- Design patterns
+- Database architecture
+- Cloud architecture</code></pre>
+
+            <h4>Using Agents:</h4>
+            <ol>
+                <li>Open Copilot Chat</li>
+                <li>Type <code>@</code> to see available agents</li>
+                <li>Select your custom agent</li>
+                <li>Ask your question</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="mcp" class="tutorial-section">
+        <h2>🔌 MCP Servers (Model Context Protocol)</h2>
+        <div class="tutorial-content">
+            <h3>What are MCP Servers?</h3>
+            <p>MCP servers extend Copilot's capabilities by connecting to external tools and data sources.</p>
+
+            <h3>Popular MCP Servers</h3>
+            <ul>
+                <li><strong>Azure MCP:</strong> Interact with Azure resources</li>
+                <li><strong>Microsoft Learn:</strong> Access Microsoft documentation</li>
+                <li><strong>GitHub MCP:</strong> Interact with GitHub repositories</li>
+                <li><strong>Database MCP:</strong> Query databases</li>
+            </ul>
+
+            <h3>Installing MCP Servers</h3>
+            <h4>Method 1: Command Palette</h4>
+            <ol>
+                <li>Press <code>Ctrl+Shift+P</code></li>
+                <li>Type "MCP: Add Server"</li>
+                <li>Follow configuration prompts</li>
+            </ol>
+
+            <h4>Method 2: Manual Configuration</h4>
+            <pre><code class="language-json">{
+  "mcp.servers": {
+    "azure": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@azure/mcp@latest", "server", "start"]
+    },
+    "microsoft-learn": {
+      "type": "http",
+      "url": "https://mcp-server.microsoft.com/learn"
+    }
+  }
+}</code></pre>
+        </div>
+    </section>
+
+    <section id="levels" class="tutorial-section">
+        <h2>📊 Configuration Levels</h2>
+        <div class="tutorial-content">
+            <h3>Understanding Configuration Levels</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Scope</th>
+                        <th>Location</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>User</strong></td>
+                        <td>All projects</td>
+                        <td><code>~/.vscode/settings.json</code></td>
+                        <td>Personal preferences</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Workspace</strong></td>
+                        <td>Current workspace</td>
+                        <td><code>.vscode/settings.json</code></td>
+                        <td>Team standards</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Project</strong></td>
+                        <td>Repository</td>
+                        <td><code>.github/</code> folder</td>
+                        <td>Project-specific rules</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Project Structure Example</h3>
+            <pre><code>project-root/
+├── .github/
+│   ├── copilot-instructions.md       # Main instructions
+│   ├── instructions/                  # File-specific
+│   │   ├── python.instructions.md
+│   │   └── typescript.instructions.md
+│   ├── prompts/                       # Reusable prompts
+│   │   ├── create-component.prompt.md
+│   │   └── write-tests.prompt.md
+│   └── agents/                        # Custom agents
+│       └── architect.agent.md
+└── .vscode/
+    └── settings.json                  # Workspace settings</code></pre>
+        </div>
+    </section>
+
+    <!-- Complete Example -->
+    <section class="tutorial-section highlight">
+        <h2>🎯 Complete Setup Example</h2>
+        <div class="tutorial-content">
+            <h3>Setting Up a Python Project</h3>
+
+            <h4>1. Create Project Structure</h4>
+            <pre><code class="language-bash">mkdir -p .github/instructions .github/prompts .vscode</code></pre>
+
+            <h4>2. Create Main Instructions</h4>
+            <pre><code class="language-markdown"># .github/copilot-instructions.md
+# My Python Project
+
+A Flask REST API with PostgreSQL database.
+
+## Tech Stack
+- Python 3.11
+- Flask 3.0
+- PostgreSQL 15
+- pytest for testing
+
+## Standards
+- Follow PEP 8
+- Use type hints
+- 90% test coverage required</code></pre>
+
+            <h4>3. Create Python-Specific Instructions</h4>
+            <pre><code class="language-markdown"># .github/instructions/python.instructions.md
+---
+description: Python coding standards
+applyTo: '**/*.py'
+---
+
+# Python Standards
+- Follow PEP 8
+- Use Black for formatting
+- Write Google-style docstrings</code></pre>
+
+            <h4>4. Configure Workspace</h4>
+            <pre><code class="language-json">// .vscode/settings.json
+{
+  "python.linting.enabled": true,
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "python.testing.pytestEnabled": true
+}</code></pre>
+
+            <h4>5. Commit Configuration</h4>
+            <pre><code class="language-bash">git add .github/ .vscode/
+git commit -m "Add Copilot customization"
+git push</code></pre>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="resources-section">
+        <h2>📚 Additional Resources</h2>
+        <div class="resource-links">
+            <a href="https://docs.github.com/en/copilot" target="_blank" class="resource-link">
+                <span class="icon">📖</span>
+                GitHub Copilot Documentation
+            </a>
+            <a href="https://code.visualstudio.com/docs/copilot/overview" target="_blank" class="resource-link">
+                <span class="icon">💻</span>
+                VS Code Copilot Guide
+            </a>
+            <a href="https://modelcontextprotocol.io/" target="_blank" class="resource-link">
+                <span class="icon">🔌</span>
+                MCP Protocol Documentation
+            </a>
+            <a href="https://learn.microsoft.com/en-us/training/paths/copilot/" target="_blank" class="resource-link">
+                <span class="icon">🎓</span>
+                Microsoft Learn Courses
+            </a>
+            <a href="https://github.com/github/awesome-copilot" target="_blank" class="resource-link">
+                <span class="icon">⭐</span>
+                Awesome Copilot Resources
+            </a>
+        </div>
+    </section>
+</div>
+
+<style>
+.tutorials-page {
+    padding: 2rem 0;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #24292e;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #586069;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.quick-links {
+    margin-bottom: 3rem;
+}
+
+.quick-links h2 {
+    font-size: 1.8rem;
+    color: #24292e;
+    margin-bottom: 1.5rem;
+}
+
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.quick-link-card {
+    background: #ffffff;
+    border: 2px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: #24292e;
+    transition: all 0.3s ease;
+}
+
+.quick-link-card:hover {
+    border-color: #0366d6;
+    box-shadow: 0 4px 12px rgba(3, 102, 214, 0.1);
+    transform: translateY(-2px);
+}
+
+.quick-link-card .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.quick-link-card h3 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.quick-link-card p {
+    font-size: 0.9rem;
+    color: #586069;
+    margin: 0;
+}
+
+.download-section {
+    background: #f6f8fa;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+
+.download-section h2 {
+    font-size: 1.8rem;
+    color: #24292e;
+    margin-bottom: 1.5rem;
+}
+
+.download-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.download-card {
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.download-card h3 {
+    font-size: 1.3rem;
+    color: #24292e;
+    margin-bottom: 0.5rem;
+}
+
+.download-card p {
+    color: #586069;
+    margin-bottom: 1rem;
+}
+
+.download-btn, .view-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.download-btn {
+    background: #0366d6;
+    color: white;
+}
+
+.download-btn:hover {
+    background: #0256b0;
+}
+
+.view-btn {
+    background: #ffffff;
+    color: #0366d6;
+    border: 1px solid #0366d6;
+}
+
+.view-btn:hover {
+    background: #f6f8fa;
+}
+
+.tutorial-section {
+    margin-bottom: 3rem;
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.tutorial-section.highlight {
+    border-left: 4px solid #0366d6;
+    background: #f6f8fa;
+}
+
+.tutorial-section h2 {
+    font-size: 1.8rem;
+    color: #24292e;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e1e4e8;
+}
+
+.tutorial-content h3 {
+    font-size: 1.4rem;
+    color: #24292e;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tutorial-content h4 {
+    font-size: 1.1rem;
+    color: #24292e;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tutorial-content p {
+    color: #586069;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.tutorial-content ol, .tutorial-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tutorial-content li {
+    color: #586069;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.tutorial-content code {
+    background: #f6f8fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.tutorial-content pre {
+    background: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.tutorial-content pre code {
+    background: none;
+    padding: 0;
+}
+
+.tutorial-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.tutorial-content table th,
+.tutorial-content table td {
+    border: 1px solid #e1e4e8;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.tutorial-content table th {
+    background: #f6f8fa;
+    font-weight: 600;
+    color: #24292e;
+}
+
+.tutorial-content table td {
+    color: #586069;
+}
+
+.resources-section {
+    background: #f6f8fa;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.resources-section h2 {
+    font-size: 1.8rem;
+    color: #24292e;
+    margin-bottom: 1.5rem;
+}
+
+.resource-links {
+    display: grid;
+    gap: 1rem;
+}
+
+.resource-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 1rem;
+    text-decoration: none;
+    color: #0366d6;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.resource-link:hover {
+    border-color: #0366d6;
+    box-shadow: 0 2px 8px rgba(3, 102, 214, 0.1);
+}
+
+.resource-link .icon {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .link-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .download-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+}
+</style>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 GitHub Copilot Demo Project. Built with Flask and ❤️</p>
+            <p class="footer-links">
+                <a href="https://github.com/agharib89/gh-copilot-raisa" target="_blank">GitHub Repository</a> |
+                <a href="https://docs.github.com/en/copilot" target="_blank">Copilot Docs</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="/gh-copilot-raisa/static/js/main.js"></script>
+    
+</body>
+</html>

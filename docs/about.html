@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About This Project - GitHub Copilot Demo</title>
+    <link rel="stylesheet" href="/gh-copilot-raisa/static/css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/gh-copilot-raisa/">
+                    <span class="logo">🤖</span>
+                    <span class="brand-name">GitHub Copilot Demo</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/" class="nav-link ">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/resources.html" class="nav-link ">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/tutorials.html" class="nav-link ">Tutorials</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/examples.html" class="nav-link ">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/about.html" class="nav-link active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/gh-copilot-raisa/author.html" class="nav-link ">Author</a>
+                </li>
+                <li class="nav-item">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text">Dark</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            
+<div class="page-header">
+    <h1>About This Project</h1>
+    <p class="page-description">
+        A demonstration of GitHub Copilot capabilities through a Python Flask application.
+    </p>
+</div>
+
+<section class="about-section">
+    <div class="about-content">
+        <h2>Project Overview</h2>
+        <p>
+            This project showcases how GitHub Copilot can accelerate development and improve code quality
+            through AI-powered suggestions. It's built using Python Flask and demonstrates various
+            Copilot features including code completion, test generation, and documentation.
+        </p>
+
+        <h2>Key Features</h2>
+        <ul class="features-list">
+            <li>
+                <strong>Comprehensive Copilot Configuration:</strong>
+                Pre-configured instructions, prompts, and agents to maximize Copilot's effectiveness.
+            </li>
+            <li>
+                <strong>Best Practices:</strong>
+                Follows Python PEP 8 and PEP 257 conventions with type hints and comprehensive docstrings.
+            </li>
+            <li>
+                <strong>Security-First:</strong>
+                Built-in security guidelines and best practices for secure application development.
+            </li>
+            <li>
+                <strong>Testing Standards:</strong>
+                Pytest-based testing with high coverage standards and comprehensive test examples.
+            </li>
+            <li>
+                <strong>CI/CD Ready:</strong>
+                Includes GitHub Actions workflow for automated testing and linting.
+            </li>
+        </ul>
+
+        <h2>Project Structure</h2>
+        <div class="structure-info">
+            <pre><code>gh-copilot-raisa/
+├── .github/
+│   ├── instructions/     # Language-specific guidelines
+│   ├── prompts/          # Reusable prompts
+│   └── agents/           # Specialized agents
+├── src/
+│   ├── app.py           # Flask application
+│   ├── routes.py        # Route handlers
+│   ├── templates/       # HTML templates
+│   └── static/          # CSS, JS files
+├── tests/               # Test suite
+└── requirements.txt     # Dependencies</code></pre>
+        </div>
+
+        <h2>Technologies Used</h2>
+        <div class="tech-stack">
+            <div class="tech-item">
+                <h4>Backend</h4>
+                <ul>
+                    <li>Python 3.11+</li>
+                    <li>Flask 3.0</li>
+                    <li>Jinja2 Templates</li>
+                </ul>
+            </div>
+            <div class="tech-item">
+                <h4>Development Tools</h4>
+                <ul>
+                    <li>pytest (Testing)</li>
+                    <li>black (Formatting)</li>
+                    <li>flake8 (Linting)</li>
+                    <li>mypy (Type Checking)</li>
+                </ul>
+            </div>
+            <div class="tech-item">
+                <h4>AI Assistant</h4>
+                <ul>
+                    <li>GitHub Copilot</li>
+                    <li>Copilot Chat</li>
+                    <li>Custom Instructions</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Getting Started</h2>
+        <div class="getting-started">
+            <h4>Installation</h4>
+            <pre><code>git clone https://github.com/agharib89/gh-copilot-raisa.git
+cd gh-copilot-raisa
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+pip install -r requirements-dev.txt</code></pre>
+
+            <h4>Running the Application</h4>
+            <pre><code>python src/app.py</code></pre>
+            <p>Then visit <code>http://127.0.0.1:5000</code> in your browser.</p>
+
+            <h4>Running Tests</h4>
+            <pre><code>pytest</code></pre>
+        </div>
+
+        <h2>Contributing</h2>
+        <p>
+            Contributions are welcome! Please read our
+            <a href="https://github.com/agharib89/gh-copilot-raisa/blob/main/CONTRIBUTING.md">contribution guidelines</a>
+            before submitting pull requests.
+        </p>
+
+        <h2>License</h2>
+        <p>This project is licensed under the MIT License.</p>
+    </div>
+</section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 GitHub Copilot Demo Project. Built with Flask and ❤️</p>
+            <p class="footer-links">
+                <a href="https://github.com/agharib89/gh-copilot-raisa" target="_blank">GitHub Repository</a> |
+                <a href="https://docs.github.com/en/copilot" target="_blank">Copilot Docs</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="/gh-copilot-raisa/static/js/main.js"></script>
+    
+</body>
+</html>
