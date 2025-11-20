@@ -5,6 +5,35 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Burger Menu Toggle Functionality
+    const burgerToggle = document.getElementById('burger-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (burgerToggle && navMenu) {
+        burgerToggle.addEventListener('click', function() {
+            const isExpanded = burgerToggle.getAttribute('aria-expanded') === 'true';
+            burgerToggle.setAttribute('aria-expanded', !isExpanded);
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a navigation link
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                burgerToggle.setAttribute('aria-expanded', 'false');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!burgerToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                burgerToggle.setAttribute('aria-expanded', 'false');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle?.querySelector('.theme-icon');
