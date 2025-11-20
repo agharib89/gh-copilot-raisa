@@ -7,6 +7,8 @@ This test file demonstrates testing Flask routes and responses.
 import pytest
 from flask import Flask
 from flask.testing import FlaskClient
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse
 
 from src.app import create_app
 
@@ -112,7 +114,15 @@ class TestResourcesData:
         """Test that resources page contains learning resource links."""
         response = client.get("/resources")
         assert response.status_code == 200
-        assert b"docs.github.com" in response.data
+        # Parse the HTML and confirm at least one anchor to docs.github.com is present
+        soup = BeautifulSoup(response.data, "html.parser")
+        docs_link_found = False
+        for a_tag in soup.find_all("a", href=True):
+            parsed = urlparse(a_tag["href"])
+            if parsed.netloc == "docs.github.com":
+                docs_link_found = True
+                break
+        assert docs_link_found, "No <a> tag with href to docs.github.com found"
         has_official = b"Official" in response.data
         has_getting_started = b"Getting Started" in response.data
         assert has_official or has_getting_started
