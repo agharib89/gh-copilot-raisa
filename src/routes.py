@@ -6,8 +6,32 @@ application, including pages for home, resources, examples, and about.
 """
 
 from typing import Any, Dict, List
+from urllib.parse import urlparse
 
 from flask import Flask, render_template
+
+
+def sanitize_url(url: str) -> str:
+    """
+    Sanitize and validate a URL.
+
+    Args:
+        url: URL string to sanitize.
+
+    Returns:
+        Sanitized URL string.
+
+    Raises:
+        ValueError: If URL is invalid or uses an unsafe scheme.
+    """
+    parsed = urlparse(url)
+    # Only allow http and https schemes
+    if parsed.scheme not in ("http", "https"):
+        raise ValueError(f"Unsafe URL scheme: {parsed.scheme}")
+    # Ensure the URL has a valid netloc (domain)
+    if not parsed.netloc:
+        raise ValueError("Invalid URL: missing domain")
+    return url
 
 
 def register_routes(app: Flask) -> None:
@@ -86,10 +110,13 @@ def register_routes(app: Flask) -> None:
         Returns:
             Rendered author page template.
         """
+        # Sanitize the creator's website URL
+        creator_url = sanitize_url("https://agharib.com")
         return render_template(
             "author.html",
             title="About the Author",
             active_page="author",
+            creator_url=creator_url,
         )
 
     @app.route("/tutorials")
