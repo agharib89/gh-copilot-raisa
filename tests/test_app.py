@@ -73,6 +73,15 @@ class TestRoutes:
         assert b"About the Author" in response.data
         assert b"Raisa Energy" in response.data
 
+    def test_author_page_creator_section(self, client: FlaskClient) -> None:
+        """Test that author page contains creator information."""
+        response = client.get("/author")
+        assert response.status_code == 200
+        assert b"About the Creator" in response.data
+        assert b"Ahmed Gharib" in response.data
+        assert b"Senior Data Engineer" in response.data
+        assert b"agharib.com" in response.data
+
     def test_404_error(self, client: FlaskClient) -> None:
         """Test that 404 page is displayed for invalid routes."""
         response = client.get("/nonexistent")
