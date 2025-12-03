@@ -80,7 +80,8 @@ class TestRoutes:
         assert b"About the Creator" in response.data
         assert b"Ahmed Gharib" in response.data
         assert b"Senior Data Engineer" in response.data
-        assert b"agharib.com" in response.data
+        # Verify the complete URL is properly formed and linked
+        assert b'href="https://agharib.com"' in response.data
 
     def test_404_error(self, client: FlaskClient) -> None:
         """Test that 404 page is displayed for invalid routes."""
